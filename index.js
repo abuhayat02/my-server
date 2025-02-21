@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 5100;
 const server = http.createServer(app);
 const io = new Server(server, {
     cors: {
-        origin: "*",  
+        origin: "*",
     },
 });
 
@@ -41,8 +41,14 @@ io.on("connection", (socket) => {
 app.get("/", (req, res) => {
     res.send("Socket.io Server is running...");
 });
-app.get("/me", (req, res) => {
-    res.send("i am websoket");
+
+app.get('/me', (req, res) => {
+    res.json({ message: "Hello, this is my new route!" });
+});
+
+// নতুন route
+app.get('/new-route', (req, res) => {
+    res.json({ message: "This is a new route response!" });
 });
 
 server.listen(PORT, () => {

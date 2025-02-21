@@ -41,6 +41,9 @@ io.on("connection", (socket) => {
 app.get("/", (req, res) => {
     res.send("Socket.io Server is running...");
 });
+app.get("/me", (req, res) => {
+    res.send("i am websoket");
+});
 
 server.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);

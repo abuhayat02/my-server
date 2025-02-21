@@ -80,6 +80,14 @@ async function run() {
             }
         });
 
+        app.get('/my-all-task' , async (req , res )=>{
+            let result = await info.find({}).toArray() ;
+            res.status(200).send({
+                success : true ,
+                data : result
+            })
+        })
+
 
 
         io.on("connection", (socket) => {
